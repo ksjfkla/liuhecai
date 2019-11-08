@@ -7,7 +7,7 @@ import numpy as np
 
 
 def welcome():
-  global accountmoney
+	global accountmoney
 	#print("欢迎参加山寨版六合彩!")
 	print(f"目前是第{i+1}位玩家的{qi}期摇号")
 	#print(f"你现在的余额为： {accountmoney} 元")
