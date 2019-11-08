@@ -186,7 +186,7 @@ print("*" * 30)
 
 
 for j in range(rounds):
-	print(f"在第{j+1}轮无限重复博弈中，总博弈回合数为{kellyqi[j] - 1},期望余额为{(1/49*odds-1)*(kellyqi[j] - 1)} 最终余额为{kellyacm[j]}, \
+	print(f"在第{j+1}轮无限重复博弈中，总博弈回合数为{kellyqi[j] - 1},期望余额为{(1/49*odds-1)*(kellyqi[j] - 1)+1000} 最终余额为{kellyacm[j]}, \
 	巅峰时刻余额为{dictmax[j]}, 此时为第{dictmaxp[j]+1}回合")
 
 print(f"""
