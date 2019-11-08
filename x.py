@@ -4,7 +4,7 @@ import math
 import datetime
 import matplotlib.pyplot as plt
 import numpy as np
-# 4 spaces
+
 
 def welcome():
 	global accountmoney
@@ -125,13 +125,15 @@ betmoney = 1
 indicator = []
 kellyacm = []
 kellyqi = []
-odds = 49
-times = 36500
+odds = 50
+times = 10000000
 #rounds = 3
 #times = float('inf')
-rounds = 200
+rounds = 50
 all = 0
 dict1 = {}
+dictmax = {}
+dictmaxp = {}
 	
 for i in range(rounds):
 	innerlist = []
@@ -157,6 +159,9 @@ for i in range(rounds):
 		kellyacm.append(accountmoney)
 		kellyqi.append(qi)
 		dict1[i] = innerlist
+		dictmax[i] = max(innerlist)
+		dictmaxp[i] = innerlist.index(max(innerlist))
+		
 		
 	accountmoney = 1000
 	qi = 1
@@ -173,14 +178,16 @@ for i in range(rounds):
 #print("*" * 10)
 #print(kellyqi)
 print("-" * 30)
-print(f"本次测试的初始资金为1000元、每回合投注金额为1元、每轮最大回合数为{times}、共{rounds}轮")
+print(f"本次测试的初始资金为1000元、每回合投注金额为1元、每轮最大回合数为{times}、共{rounds}轮、\
+每回合期望回报为{1/49*odds-1}")
 print(f"池子共49个号码，赔率为1:{odds}")
 #print("因此理论上最低参与回合数为1000次，预期每轮回合数为12250")
 print("*" * 30)
 
 
 for j in range(rounds):
-	print(f"在第{j+1}次无限重复博弈中，总博弈回合数为{kellyqi[j] - 1}, 最终余额为{kellyacm[j]}")
+	print(f"在第{j+1}轮无限重复博弈中，总博弈回合数为{kellyqi[j] - 1},期望余额为{(1/49*odds-1)*(kellyqi[j] - 1)} 最终余额为{kellyacm[j]}, \
+	巅峰时刻余额为{dictmax[j]}, 此时为第{dictmaxp[j]+1}回合}")
 
 print(f"""
 玩家最终总资产为{sum(kellyacm)}, 
