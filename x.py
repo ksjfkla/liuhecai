@@ -4,7 +4,7 @@ import math
 import datetime
 import matplotlib.pyplot as plt
 import numpy as np
-
+# 4 spaces
 
 def welcome():
 	global accountmoney
